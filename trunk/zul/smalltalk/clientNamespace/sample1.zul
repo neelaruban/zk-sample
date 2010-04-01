@@ -1,0 +1,17 @@
+<window xmlns:w="http://www.zkoss.org/2005/zk/client">
+      <label value="I'll change" id="label1">
+            <attribute w:name="setValue">
+            function (value, fromServer) {
+                  this.$setValue(value, fromServer); //call the original method
+                  if (this.desktop) {
+                        this._flag = !this._flag;
+                        this.setStyle('background:'+(this._flag ? 'red':'blue'));
+                  }
+            }
+            </attribute>
+      </label>
+      <button label="test" onClick="label1.setValue((new Date()).toString());"/>
+      
+      
+      <button label="test2" onClick='label1.setValue("Same value will not trigger set value")'/>
+</window>
