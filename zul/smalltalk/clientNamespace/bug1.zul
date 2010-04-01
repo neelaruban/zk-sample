@@ -1,0 +1,8 @@
+<window xmlns:w="http://www.zkoss.org/2005/zk/client" >
+	<vbox>
+		<label id="forScript" value="target by script"/>
+		
+		<!-- seems like script set src and defer have bug -->
+		<script src="foo.js" defer="true"></script>		
+	</vbox>
+</window>

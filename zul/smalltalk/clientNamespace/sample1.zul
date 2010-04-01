@@ -1,17 +1,72 @@
-<window xmlns:w="http://www.zkoss.org/2005/zk/client">
-      <label value="I'll change" id="label1">
-            <attribute w:name="setValue">
-            function (value, fromServer) {
-                  this.$setValue(value, fromServer); //call the original method
-                  if (this.desktop) {
-                        this._flag = !this._flag;
-                        this.setStyle('background:'+(this._flag ? 'red':'blue'));
-                  }
-            }
-            </attribute>
-      </label>
-      <button label="test" onClick="label1.setValue((new Date()).toString());"/>
-      
-      
-      <button label="test2" onClick='label1.setValue("Same value will not trigger set value")'/>
+<window xmlns:w="http://www.zkoss.org/2005/zk/client" apply="smalltalk.clientNamespace.Sample1Ctrl">
+	<vbox>
+		<label value="click to log"
+			xmlns:w="http://www.zkoss.org/2005/zk/client"
+			w:onClick="zk.log('clicked')" />
+
+		<label value="click to change"
+			w:onClick="this.setValue('clicked');" />
+
+		<label value="doesn't work, for it should be java script running on browser, not zscript in server"
+			w:onClick="this.value='clicked';" />
+
+		<label value="doesn't work, just changed the _value of widget, but not modify the html output"
+			w:onClick="this._value='clicked';" />
+
+		<label id="setByCtrl" value="set onClick handler programmingly by java"/>
+		
+			
+		<label value="I'll change" id="label1">
+			<attribute w:name="setValue">
+				function (value) { 
+					this.$setValue(value); //call the original method 
+					if(this.desktop) { 
+						this._flag = !this._flag;
+						this.setStyle('background:'+(this._flag ?'red':'green')); 
+					} 
+				}
+			</attribute>
+		</label>
+		<button label="click to change"
+			onClick="label1.setValue((new Date()).toString());" />
+
+		<button label="Same value will not trigger set value"
+			onClick='label1.setValue("Same value")' />
+			
+		<textbox id="source" value="ABC"/>
+		<label value="${source.value}"/>
+								
+ 			
+		<label value="I am label EL !!!" id="labelEL" w:setValue='function (value) { this.$setValue(value + "${source.value}");}'/>
+				
+		<button label="click to change label EL"
+			onClick="labelEL.setValue((new Date()).toString());" />
+
+		<label value="hello" w:myval="'${source.value}'"/>
+		
+		<!-- new Date() is passed to browser as javascript -->			
+		<label value="hello2" w:myval="new Date()"/>
+		
+		<label id="setByCtrl2" value="setValue is reloaded programmingly by java"/>
+		
+		<label id="forScript" value="target by script"/>
+		<label id="forScript2" value="target by script 2"/>
+		
+		<!-- seems like script set src and defer have bug -->
+		<script src="foo.js" defer="true"></script>
+		
+		<!-- script have to assign defer="true" to create a script widget -->
+		<!-- if not assign defer="true", no script widget created, and the javascript is executed right away -->
+		<script defer="true">
+			this.$f('forScript').setValue('changed by script');		
+		</script>
+		
+		<script xmlns:n="http://www.zkoss.org/2005/zk/native">
+			var a_global_variable;
+			function a_global_function () {
+				alert("native script");
+			}
+			//alert("you can not access this as widget but evaluated immediately");
+		</script>		
+	</vbox>
 </window>

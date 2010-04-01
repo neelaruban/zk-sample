@@ -1,0 +1,4 @@
+<window xmlns:w="http://www.zkoss.org/2005/zk/client">
+  <label value="change me by click" w:onClick="this.setValue('clicked');"/> 
+</window>
+
