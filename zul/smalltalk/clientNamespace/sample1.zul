@@ -53,7 +53,7 @@
 		<label id="forScript2" value="target by script 2"/>
 		
 		<!-- seems like script set src and defer have bug -->
-		<script src="foo.js" defer="true"></script>
+		<script src="foo.js"></script>
 		
 		<!-- script have to assign defer="true" to create a script widget -->
 		<!-- if not assign defer="true", no script widget created, and the javascript is executed right away -->
