@@ -1,4 +1,4 @@
-#How to install the zk-sample
+How to install the zk-sample
 
 = Introduction =
 
