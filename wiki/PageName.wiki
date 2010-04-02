@@ -7,7 +7,7 @@ There are two folder, *src* and *zul*. *src* for resources will be placed under 
 
 = Details =
 
-*Check out the project.
-*Create a new ZK project through ZK studio.
-*Create a folder link to *src* folder, and use it as source folder.
-*Create a folder link to *zul* folder under WebContent.
+  *Check out the project.
+  *Create a new ZK project through ZK studio.
+  *Create a folder link to *src* folder, and use it as source folder.
+  *Create a folder link to *zul* folder under WebContent.
