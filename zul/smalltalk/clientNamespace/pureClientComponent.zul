@@ -1,0 +1,18 @@
+<?page title="new page title" contentType="text/html;charset=UTF-8"?>
+<zk>
+	<window title="add pure client side zk widget" border="normal">		
+		<html>
+			<![CDATA[ <div id="main"
+			style="width:200px;height:150px;border:1px solid blue"> ]]>
+		</html>
+		<script>
+			zk.afterLoad(function () { 
+				var main = jq("#main");
+				main.after( new zul.wgt.Button({ 
+					label: "enlarge", 
+					onClick:function () { alert("clicked"); } 
+				}));
+			});
+		</script>
+	</window>
+</zk>
