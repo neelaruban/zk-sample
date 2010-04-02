@@ -1,0 +1,19 @@
+<window xmlns:w="http://www.zkoss.org/2005/zk/client">
+	onShow is not called when first time rendering.
+	It is called while setVisible="false", and then setVisible="true"	
+	<button label="if onShow" id="b1"
+		style="position:relative;zoom:1">
+		<attribute w:name="onShow">
+			jq(this).hide().fadeIn(2500);
+		</attribute>
+		<attribute w:name="bind_">
+			function () { this.$bind_(); zWatch.listen({onShow: this});
+			}
+		</attribute>
+	</button>
+
+	<button label="show" onClick="b1.setVisible(true);" />
+	<button label="hide" onClick="b1.setVisible(false);" />
+	<button label="action"
+		w:onClick="jq(this.$f('b1')).hide().fadeIn(2500)" />
+</window>
