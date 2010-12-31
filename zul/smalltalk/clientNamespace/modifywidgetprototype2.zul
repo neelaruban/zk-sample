@@ -1,0 +1,7 @@
+<zk>
+<window xmlns:w="http://www.zkoss.org/2005/zk/client">
+<label id="labelone" value="label one"/>
+<label id="labeltwo" value="label two"/>
+<button label="change" onClick='labelone.setValue((new Date()).toString());labeltwo.setValue((new Date()).toString());'/>		
+</window>
+</zk>

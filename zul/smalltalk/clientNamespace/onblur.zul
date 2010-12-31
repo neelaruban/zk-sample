@@ -1,0 +1,12 @@
+<window title="listen dom event" border="normal"
+	xmlns:w="http://www.zkoss.org/2005/zk/client">
+	<textbox value="onBlur to alert" w:onBlur="alert('onBlur by zk')" />
+	<textbox value="onblur to alert">
+		<attribute w:name="bind_">
+			function () { 
+				this.$bind_(); 
+				jq(this).bind('blur',function(event){alert('blurred by jquery')});
+			}
+		</attribute>
+	</textbox>
+</window>

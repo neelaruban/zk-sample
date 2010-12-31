@@ -1,0 +1,14 @@
+<window xmlns:w="http://www.zkoss.org/2005/zk/client">
+	<vbox>
+		<label id="labelone" value="click to change"
+			w:onClick="this.setValue('changed by click label');" />
+
+		<button label="button"
+			w:onClick="this.$f('labelone').setValue('changed by button');" />
+
+		<html><![CDATA[
+		<a href="javascript:;" onclick="zk.Widget.$(jq('$labelone')[0].id).setValue('changed with jq');">not widget</a>
+		]]></html>		
+	
+	</vbox>
+</window>

@@ -1,0 +1,7 @@
+<zk xmlns:w="http://www.zkoss.org/2005/zk/client">
+	<button label="slideDown"
+		w:onClick="jq(this.$f('t')).hide().slideDown()" />
+	<div id="t">
+		<button label="target" />
+	</div>
+</zk>

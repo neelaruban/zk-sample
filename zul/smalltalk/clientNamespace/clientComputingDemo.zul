@@ -68,5 +68,11 @@
 			}
 			//alert("you can not access this as widget but evaluated immediately");
 		</script>		
+		
+		<html id="htmlComp"><![CDATA[
+	<a href="javascript:;" onclick="zAu.send(new zk.Event(zk.Widget.$(this), 'onUser',[1,2]));">onUser with [1, 2]</a>
+	]]></html>		
+	
+		
 	</vbox>
 </window>
