@@ -1,0 +1,13 @@
+
+<window xmlns:w="http://www.zkoss.org/2005/zk/client">
+	<label id="labelone" value="label one"/>
+	<label id="labeltwo" value="label two"/>
+	<script defer="true">
+		old = zul.wgt.Label.prototype.setValue;			
+		zul.wgt.Label.prototype.setValue = function (){
+			arguments[0]="modified prototype"+arguments[0];
+			old.apply(this,arguments);
+		}					
+	</script>
+	<button label="change" onClick='labelone.setValue((new Date()).toString());labeltwo.setValue((new Date()).toString());'/>		
+</window>

@@ -1,0 +1,7 @@
+<window>
+		<html onUser='l.value ="onUser "+org.zkoss.lang.Objects.toString(event.data)'><![CDATA[
+			<a href="javascript:;" onclick="zAu.send(new zk.Event(zk.Widget.$(this), 'onUser',[1,2]));">onUser with [1, 2]</a>
+		]]></html>		
+		<label id="l"/>	
+</window>
+
